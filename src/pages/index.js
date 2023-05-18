@@ -16,16 +16,50 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-white">
-        <Navbar transparent={true}/>
-        <div id="billboard" className="relative h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden">
-          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-40 w-1/2">
+        <Navbar transparent={true} />
+        <div
+          id="billboard"
+          className="relative h-[30vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden z-10"
+        >
+          <div className="absolute h-[40vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
+            <div className="text-left w-full relative px-32 flex flex-col gap-6">
+              <div>
+                <Image
+                  src="/image/revenge-of-the-sith-dplus-logotitle-800_53d94418.png"
+                  width={300}
+                  height={300}
+                  className="drop-shadow-xl"
+                />
+              </div>
+              <div className="lg:block md:hidden drop-shadow-lg">
+                The climactic chapter of the Star Wars prequel trilogy,
+                depicting the tragic fall of Jedi Knight Anakin Skywalker to the
+                dark side, his transformation into Darth Vader, and the rise of
+                the Galactic Empire under Emperor Palpatine's manipulative
+                reign.
+              </div>
+              <div className="flex flex-row gap-6 text-sm h-10">
+                <button className="rounded-md bg-white text-gray-900 hover:bg-white/75 flex px-5 gap-4 justify-center items-center">
+                <i class="fa-solid fa-play pt-1"></i><div>Play</div>
+                </button>
+                <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-4 flex px-5 gap-4 justify-center items-center">
+                <i class="fa-duotone fa-circle-info"></i><div>More Info</div>
+                </button>
+              </div>
+            </div>
           </div>
-            <Image
-                src="/image/rots.jpg"
-                width="1920"
-                height="500"
-                className="object-right  sm:object-contain"
-            />
+
+          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
+          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg  z-30 w-full"></div>
+          <Image
+            src="/image/530478.jpg"
+            width="1920"
+            height="500"
+            className="object-right sm:object-contain"
+          />
+        </div>
+        <div className="border border-red-500 relative h-40 -top-10 z-20">
+          <div className="px-4 text-xs lg:text-sm">Top Searches</div>
         </div>
       </main>
     </>
