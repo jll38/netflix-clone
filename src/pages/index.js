@@ -16,9 +16,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-white">
-        <Navbar />
-        <div>
-          
+        <Navbar transparent={true}/>
+        <div id="billboard" className="relative h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden">
+          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-40 w-1/2">
+          </div>
+            <Image
+                src="/image/rots.jpg"
+                width="1920"
+                height="500"
+                className="object-right  sm:object-contain"
+            />
         </div>
       </main>
     </>
