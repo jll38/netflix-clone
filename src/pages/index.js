@@ -55,17 +55,17 @@ export default function Home() {
                 the Galactic Empire under Emperor Palpatine&apos;s manipulative
                 reign.
               </div>
-              <div className="flex flex-row gap-6 text-xs sm:text-sm h-5 sm:h-10">
+              <div className="flex flex-row gap-6 text-xs sm:text-sm sm:h-10">
                 <button className="rounded-md bg-white text-gray-900 hover:bg-white/75 flex px-5 gap-4 justify-center items-center">
-                  <i class="fa-solid fa-play pt-1"></i>
+                  <i className="fa-solid fa-play pt-1"></i>
                   <div>Play</div>
                 </button>
                 <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-5.5 flex px-5 gap-4 justify-center items-center top-0">
-                  <i class="fa-solid fa-circle-info"></i>
+                  <i className="fa-solid fa-circle-info"></i>
                   <div className="sm:block hidden">More Info</div>
                 </button>
                 <button
-                  className={`text-xl left-0 w-1/8 ${!playing ? "hidden" : ""}`}
+                  className={`text-xl left-0 w-1/2 sm:w-1/8 ${!playing ? "hidden" : ""}`}
                   onClick={() => {
                     if (muted === true) {
                       setMuted(false);
@@ -75,9 +75,9 @@ export default function Home() {
                   }}
                 >
                   {muted ? (
-                    <i class="fa-solid fa-volume-xmark"></i>
+                    <i className="fa-solid fa-volume-xmark"></i>
                   ) : (
-                    <i class="fa-sharp fa-solid fa-volume-high"></i>
+                    <i className="fa-sharp fa-solid fa-volume-high"></i>
                   )}
                 </button>
               </div>
@@ -92,6 +92,7 @@ export default function Home() {
                 <div className="mt-32 sm:mt-0">
                   <div className="absolute h-[52%] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
                   <DynamicReactPlayer
+                    playsinline
                     ref={playerRef}
                     url="/video/rots.mp4"
                     className="absolute left-0 w-full h-full"
@@ -122,7 +123,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 md:-top-16 lg:-top-32 z-20">
+        <div className="relative h-40 top-10 md:-top-16 lg:-top-32 z-20">
           <div className="px-16 sm:px-20 md:px-32 text-xs sm:text-md lg:text-lg font-bold">
             Top Searches
           </div>

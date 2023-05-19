@@ -47,7 +47,7 @@ export function Navbar({ transparent }) {
         <div className="lg:hidden gap-2 pt-2">
           <button className="flex group">
             <div>
-              Browse <i class="fa-sharp fa-solid fa-caret-down"></i>
+              Browse <i className="fa-sharp fa-solid fa-caret-down"></i>
             </div>
             <div className="hidden group-hover:flex absolute top-10 w-max rounded ">
               <div className="bg-black/50 mt-4 p-2 text-white border-t">
@@ -79,13 +79,13 @@ export function Navbar({ transparent }) {
       <div className="flex gap-5">
         <div className="flex pt-2 gap-5">
           <button className="relative bottom-1">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
           <Link href="/shows">Kids</Link>
           <Link href="/dvd">DVD</Link>
           <button className="hidden sm:flex group">
             <div className="relative bottom-1.5">
-            <i class="fa-regular fa-bell text-xl"></i>
+            <i className="fa-regular fa-bell text-xl"></i>
             </div>
             <div className="hidden group-hover:flex absolute top-10 w-max rounded ">
               <div className="relative right-16 bg-black/50 mt-4 p-2 text-white border-t w-36 rounded-sm">
@@ -102,7 +102,7 @@ export function Navbar({ transparent }) {
             className="w-[30px] h-[30px] rounded-md"
             alt="profile image"
           ></img>
-          <i class="fa-sharp fa-solid fa-caret-down pt-2"></i>
+          <i className="fa-sharp fa-solid fa-caret-down pt-2"></i>
         </div>
       </div>
     </nav>
