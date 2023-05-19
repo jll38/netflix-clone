@@ -19,47 +19,59 @@ export default function Home() {
         <Navbar transparent={true} />
         <div
           id="billboard"
-          className="relative h-[30vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden z-10"
+          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden z-10"
         >
-          <div className="absolute h-[40vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
-            <div className="text-left w-full relative px-32 flex flex-col gap-6">
-              <div>
+          <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
+            <div className="text-left w-full relative px-16 md:px-24 lg:px-32 flex flex-col gap-6">
+              <div className="">
                 <Image
                   src="/image/revenge-of-the-sith-dplus-logotitle-800_53d94418.png"
                   width={300}
                   height={300}
-                  className="drop-shadow-xl"
+                  className="drop-shadow-xl lg:object-contain"
                 />
               </div>
-              <div className="lg:block md:hidden drop-shadow-lg">
+              <div className="lg:block hidden drop-shadow-lg">
                 The climactic chapter of the Star Wars prequel trilogy,
                 depicting the tragic fall of Jedi Knight Anakin Skywalker to the
                 dark side, his transformation into Darth Vader, and the rise of
                 the Galactic Empire under Emperor Palpatine's manipulative
                 reign.
               </div>
-              <div className="flex flex-row gap-6 text-sm h-10">
+              <div className="flex flex-row gap-6 text-xs sm:text-sm h-5 sm:h-10">
                 <button className="rounded-md bg-white text-gray-900 hover:bg-white/75 flex px-5 gap-4 justify-center items-center">
-                <i class="fa-solid fa-play pt-1"></i><div>Play</div>
+                  <i class="fa-solid fa-play pt-1"></i>
+                  <div>Play</div>
                 </button>
-                <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-4 flex px-5 gap-4 justify-center items-center">
-                <i class="fa-duotone fa-circle-info"></i><div>More Info</div>
+                <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-2 flex px-5 gap-4 justify-center items-center">
+                  <i class="fa-duotone fa-circle-info"></i>
+                  <div className="sm:block hidden">More Info</div>
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
-          <div className="absolute h-[45vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg  z-30 w-full"></div>
-          <Image
-            src="/image/530478.jpg"
-            width="1920"
-            height="500"
-            className="object-right sm:object-contain"
-          />
+          <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
+          <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
+          <div className="relative w-full h-0 pb-[100%]">
+            <Image
+              src="/image/530478.jpg"
+              alt="Image"
+              layout="fill"
+              objectFit="cover"
+              className="absolute top-0 left-0"
+            />
+          </div>
         </div>
-        <div className="border border-red-500 relative h-40 -top-10 z-20">
-          <div className="px-4 text-xs lg:text-sm">Top Searches</div>
+        <div className="border border-red-500 relative h-40 sm:-top-10 z-20">
+          <div className="px-32 text-xs lg:text-lg font-bold">Top Searches</div>
+          <div
+            name="top-search"
+            className="flex flex-row border border-blue-500 h-36"
+          >
+            <div name="video-card" className="">
+            </div>
+          </div>
         </div>
       </main>
     </>
