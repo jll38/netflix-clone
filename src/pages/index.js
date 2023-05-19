@@ -81,7 +81,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
+          <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent via-transparent to-netflix-bg  z-30 w-1/2"></div>
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
           <div className="relative w-full h-0 pb-[100%] bottom-36">
             {playing ? (
