@@ -1,3 +1,4 @@
+import { Carousel } from "./../components/Carousel";
 import { Navbar } from "./../components/Navbar";
 import Head from "next/head";
 import Image from "next/image";
@@ -29,9 +30,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-white">
-        <Navbar transparent={true}/>
+        <Navbar transparent={true} />
         <div className="block sm:hidden">
-        <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-t from-transparent via-transparent to-netflix-bg z-30 w-full sm:block hidden"></div>
+          <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-t from-transparent via-transparent to-netflix-bg z-30 w-full sm:block hidden"></div>
         </div>
         <div
           id="billboard"
@@ -65,7 +66,9 @@ export default function Home() {
                   <div className="sm:block hidden">More Info</div>
                 </button>
                 <button
-                  className={`text-xl left-0 w-1/2 sm:w-1/8 ${!playing ? "hidden" : ""}`}
+                  className={`text-xl left-0 w-1/2 sm:w-1/8 ${
+                    !playing ? "hidden" : ""
+                  }`}
                   onClick={() => {
                     if (muted === true) {
                       setMuted(false);
@@ -124,22 +127,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative h-40 sm:-top-16 lg:-top-32 z-20">
-          <div className="px-16 pt-5 sm:px-20 md:px-32 text-xs sm:text-md lg:text-lg font-bold">
-            Top Searches
-          </div>
-          <div
-            name="top-search"
-            className="flex flex-row h-36 gap-2 px-32 mt-2"
-          >
-            <button name="video-card" className="w-60 h-32 relative">
-              <Image
-                src="/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg"
-                layout="fill"
-                objectFit="cover"
-                className="absolute top-0 left-0"
-              ></Image>
-            </button>
-          </div>
+          <Carousel />
         </div>
       </main>
     </>
