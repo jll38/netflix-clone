@@ -30,6 +30,9 @@ export default function Home() {
       </Head>
       <main className="text-white">
         <Navbar transparent={true} />
+        <div className="block sm:hidden">
+        <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-t from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
+        </div>
         <div
           id="billboard"
           className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10"
@@ -45,7 +48,7 @@ export default function Home() {
                   alt="Billboard Movie Logo"
                 />
               </div>
-              <div className="lg:block hidden drop-shadow-lg">
+              <div className="xl:block hidden drop-shadow-lg">
                 The climactic chapter of the Star Wars prequel trilogy,
                 depicting the tragic fall of Jedi Knight Anakin Skywalker to the
                 dark side, his transformation into Darth Vader, and the rise of
@@ -85,26 +88,29 @@ export default function Home() {
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
           <div className="relative w-full h-0 pb-[100%] bottom-36">
             {playing ? (
-              <div>
-                <div className="absolute h-[52%] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
-                <DynamicReactPlayer
-                  ref={playerRef}
-                  url="/video/rots.mp4"
-                  className="absolute left-0 w-full h-full"
-                  width={'100%'}
-                  height={'60%'}
-                  playing={playing}
-                  onReady={() => console.log("onReady")}
-                  onStart={() => console.log("onStart")}
-                  onPlay={() => console.log("onPlay")}
-                  onBuffer={() => console.log("onBuffer")}
-                  onError={(e) => console.log("onError", e)}
-                  onEnded={() => {
-                    setPlaying(false);
-                  }}
-                  muted={muted}
-                />
-              </div>
+              <>
+                <div className="mt-32 sm:mt-0">
+                  <div className="absolute h-[52%] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
+                  <DynamicReactPlayer
+                    ref={playerRef}
+                    url="/video/rots.mp4"
+                    className="absolute left-0 w-full h-full"
+                    width={"100%"}
+                    height={"60%"}
+                    playing={playing}
+                    onReady={() => console.log("onReady")}
+                    onStart={() => console.log("onStart")}
+                    onPlay={() => console.log("onPlay")}
+                    onBuffer={() => console.log("onBuffer")}
+                    onError={(e) => console.log("onError", e)}
+                    onEnded={() => {
+                      setPlaying(false);
+                    }}
+                    muted={muted}
+                  />
+                </div>
+                <div></div>
+              </>
             ) : (
               <Image
                 src="/image/530478.jpg"
@@ -116,24 +122,22 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 sm:-top-32 z-20">
-          <div className="px-16 sm:px-20 md:px-32 text-xs lg:text-lg font-bold">
+        <div className="relative h-40 md:-top-16 lg:-top-32 z-20">
+          <div className="px-16 sm:px-20 md:px-32 text-xs sm:text-md lg:text-lg font-bold">
             Top Searches
           </div>
           <div
             name="top-search"
             className="flex flex-row h-36 gap-2 px-32 mt-2"
           >
-            <button
-              name="video-card"
-              className="w-60 h-32 relative"
-            >
-              <Image src="/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg"
-              layout="fill"
-              objectFit="cover"
-              className="absolute top-0 left-0"></Image>
+            <button name="video-card" className="w-60 h-32 relative">
+              <Image
+                src="/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg"
+                layout="fill"
+                objectFit="cover"
+                className="absolute top-0 left-0"
+              ></Image>
             </button>
-            
           </div>
         </div>
       </main>
