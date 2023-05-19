@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Navbar({ transparent }) {
   return (
     <nav
-      className={`flex text-xs justify-between py-4 px-8 fixed w-full ${
+      className={`sm:flex text-xs justify-between py-4 px-8 fixed w-full hidden ${
         transparent
           ? "bg-gradient-to-t from-transparent to-black"
           : "bg-gradient-to-t from-gray-900 to-black"

@@ -29,13 +29,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-white">
-        <Navbar transparent={true} />
+        <Navbar transparent={true}/>
         <div className="block sm:hidden">
-        <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-t from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
+        <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-t from-transparent via-transparent to-netflix-bg z-30 w-full sm:block hidden"></div>
         </div>
         <div
           id="billboard"
-          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10"
+          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10  sm:block hidden"
         >
           <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
             <div className="text-left w-full relative px-16 md:px-24 lg:px-32 flex flex-col gap-6">
@@ -86,7 +86,7 @@ export default function Home() {
 
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent via-transparent to-netflix-bg  z-30 w-1/2"></div>
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
-          <div className="relative w-full h-0 pb-[100%] bottom-36">
+          <div className="relative w-full h-0 pb-[100%] bottom-36 sm:block hidden">
             {playing ? (
               <>
                 <div className="mt-32 sm:mt-0">
@@ -123,8 +123,8 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 top-10 md:-top-16 lg:-top-32 z-20">
-          <div className="px-16 sm:px-20 md:px-32 text-xs sm:text-md lg:text-lg font-bold">
+        <div className="relative h-40 sm:-top-16 lg:-top-32 z-20">
+          <div className="px-16 pt-5 sm:px-20 md:px-32 text-xs sm:text-md lg:text-lg font-bold">
             Top Searches
           </div>
           <div
