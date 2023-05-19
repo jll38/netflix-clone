@@ -86,12 +86,13 @@ export default function Home() {
           <div className="relative w-full h-0 pb-[100%] bottom-36">
             {playing ? (
               <div>
+                <div className="absolute h-[52%] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
                 <DynamicReactPlayer
                   ref={playerRef}
                   url="/video/rots.mp4"
-                  className="absolute top-0 left-0 w-full h-full"
-                  width={1920}
-                  height={1080}
+                  className="absolute left-0 w-full h-full"
+                  width={'100%'}
+                  height={'60%'}
                   playing={playing}
                   onReady={() => console.log("onReady")}
                   onStart={() => console.log("onStart")}
@@ -115,7 +116,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 sm:-top-10 z-20">
+        <div className="relative h-40 sm:-top-32 z-20">
           <div className="px-16 sm:px-20 md:px-32 text-xs lg:text-lg font-bold">
             Top Searches
           </div>
