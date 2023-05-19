@@ -84,7 +84,7 @@ export function Navbar({ transparent }) {
           <Link href="/shows">Kids</Link>
           <Link href="/dvd">DVD</Link>
           <button className="hidden sm:flex group">
-            <div className="relative bottom-1">
+            <div className="relative bottom-1.5">
             <i class="fa-regular fa-bell text-xl"></i>
             </div>
             <div className="hidden group-hover:flex absolute top-10 w-max rounded ">
@@ -102,7 +102,7 @@ export function Navbar({ transparent }) {
             className="w-[30px] h-[30px] rounded-md"
             alt="profile image"
           ></img>
-          <i class="fa-sharp fa-solid fa-caret-down pt-4"></i>
+          <i class="fa-sharp fa-solid fa-caret-down pt-2"></i>
         </div>
       </div>
     </nav>

@@ -15,11 +15,10 @@ const DynamicReactPlayer = dynamic(() => import("react-player"), {
 export default function Home() {
   const playerRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true)
+  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     setPlaying(true);
-
   }, []);
   return (
     <>
@@ -43,6 +42,7 @@ export default function Home() {
                   width={300}
                   height={300}
                   className="drop-shadow-xl lg:object-contain"
+                  alt="Billboard Movie Logo"
                 />
               </div>
               <div className="lg:block hidden drop-shadow-lg">
@@ -58,21 +58,28 @@ export default function Home() {
                   <div>Play</div>
                 </button>
                 <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-5.5 flex px-5 gap-4 justify-center items-center top-0">
-                <i class="fa-solid fa-circle-info"></i>
+                  <i class="fa-solid fa-circle-info"></i>
                   <div className="sm:block hidden">More Info</div>
                 </button>
+                <button
+                  className={`text-xl left-0 w-1/8 ${!playing ? "hidden" : ""}`}
+                  onClick={() => {
+                    if (muted === true) {
+                      setMuted(false);
+                    } else {
+                      setMuted(true);
+                    }
+                  }}
+                >
+                  {muted ? (
+                    <i class="fa-solid fa-volume-xmark"></i>
+                  ) : (
+                    <i class="fa-sharp fa-solid fa-volume-high"></i>
+                  )}
+                </button>
               </div>
-              <button className={`text-xl left-0 w-1/6 ${!playing ? "hidden" : ""}`} onClick={() => {
-                if(muted === true){
-                  setMuted(false);
-                } else{
-                  setMuted(true);
-                }
-                }}>{(muted) ? (<i class="fa-solid fa-volume-xmark"></i>) : (<i class="fa-sharp fa-solid fa-volume-high"></i>)}</button>
             </div>
           </div>
-
-        
 
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
@@ -80,25 +87,27 @@ export default function Home() {
             {playing ? (
               <div>
                 <DynamicReactPlayer
-                ref={playerRef}
-                url="/video/rots.mp4"
-                className="absolute top-0 left-0 w-full h-full"
-                width={1920}
-                height={1080}
-                playing={playing}
-                onReady={() => console.log("onReady")}
-                onStart={() => console.log("onStart")}
-                onPlay={() => console.log("onPlay")}
-                onBuffer={() => console.log("onBuffer")}
-                onError={(e) => console.log("onError", e)}
-                onEnded={() => {setPlaying(false)}}
-                muted={muted}
-              />
+                  ref={playerRef}
+                  url="/video/rots.mp4"
+                  className="absolute top-0 left-0 w-full h-full"
+                  width={1920}
+                  height={1080}
+                  playing={playing}
+                  onReady={() => console.log("onReady")}
+                  onStart={() => console.log("onStart")}
+                  onPlay={() => console.log("onPlay")}
+                  onBuffer={() => console.log("onBuffer")}
+                  onError={(e) => console.log("onError", e)}
+                  onEnded={() => {
+                    setPlaying(false);
+                  }}
+                  muted={muted}
+                />
               </div>
             ) : (
               <Image
                 src="/image/530478.jpg"
-                alt="Image"
+                alt="Billboard Thumbnail Image"
                 layout="fill"
                 objectFit="cover"
                 className="absolute top-0 left-0"
@@ -107,12 +116,23 @@ export default function Home() {
           </div>
         </div>
         <div className="border border-red-500 relative h-40 sm:-top-10 z-20">
-          <div className="px-32 text-xs lg:text-lg font-bold">Top Searches</div>
+          <div className="px-16 sm:px-20 md:px-32 text-xs lg:text-lg font-bold">
+            Top Searches
+          </div>
           <div
             name="top-search"
-            className="flex flex-row border border-blue-500 h-36"
+            className="flex flex-row border border-blue-500 h-36 gap-2 px-32 mt-2"
           >
-            <div name="video-card" className=""></div>
+            <button
+              name="video-card"
+              className="w-60 h-32 border border-yellow-500 relative"
+            >
+              <Image src="/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg"
+              layout="fill"
+              objectFit="cover"
+              className="absolute top-0 left-0"></Image>
+            </button>
+            
           </div>
         </div>
       </main>
