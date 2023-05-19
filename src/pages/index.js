@@ -57,19 +57,18 @@ export default function Home() {
                   <i class="fa-solid fa-play pt-1"></i>
                   <div>Play</div>
                 </button>
-                <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-2 flex px-5 gap-4 justify-center items-center">
-                  <i class="fa-duotone fa-circle-info"></i>
+                <button className="rounded-md bg-gray-700/70 hover:bg-gray-700/50 text-white py-5.5 flex px-5 gap-4 justify-center items-center top-0">
+                <i class="fa-solid fa-circle-info"></i>
                   <div className="sm:block hidden">More Info</div>
                 </button>
               </div>
-              <button className="left-0 w-1/4" onClick={() => {
+              <button className={`text-xl left-0 w-1/6 ${!playing ? "hidden" : ""}`} onClick={() => {
                 if(muted === true){
                   setMuted(false);
                 } else{
                   setMuted(true);
                 }
-                }}>{(muted) ? (<i class="fa-solid fa-volume-xmark"></i>) : (<i class="fa-solid fa-volume"></i>)}</button>
-              
+                }}>{(muted) ? (<i class="fa-solid fa-volume-xmark"></i>) : (<i class="fa-sharp fa-solid fa-volume-high"></i>)}</button>
             </div>
           </div>
 
@@ -79,7 +78,8 @@ export default function Home() {
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
           <div className="relative w-full h-0 pb-[100%] bottom-36">
             {playing ? (
-              <DynamicReactPlayer
+              <div>
+                <DynamicReactPlayer
                 ref={playerRef}
                 url="/video/rots.mp4"
                 className="absolute top-0 left-0 w-full h-full"
@@ -94,6 +94,7 @@ export default function Home() {
                 onEnded={() => {setPlaying(false)}}
                 muted={muted}
               />
+              </div>
             ) : (
               <Image
                 src="/image/530478.jpg"
