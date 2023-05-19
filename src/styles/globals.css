@@ -27,6 +27,8 @@ a {
   text-decoration: none;
 }
 
+img{pointer-events: none;}
+
 .shows-wrapper{
   display: grid;
   grid-template-columns: repeat(3,100%);
