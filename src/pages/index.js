@@ -32,7 +32,7 @@ export default function Home() {
         <Navbar transparent={true} />
         <div
           id="billboard"
-          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] border border-red-500 overflow-hidden z-10"
+          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10"
         >
           <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
             <div className="text-left w-full relative px-16 md:px-24 lg:px-32 flex flex-col gap-6">
@@ -115,17 +115,17 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="border border-red-500 relative h-40 sm:-top-10 z-20">
+        <div className="relative h-40 sm:-top-10 z-20">
           <div className="px-16 sm:px-20 md:px-32 text-xs lg:text-lg font-bold">
             Top Searches
           </div>
           <div
             name="top-search"
-            className="flex flex-row border border-blue-500 h-36 gap-2 px-32 mt-2"
+            className="flex flex-row h-36 gap-2 px-32 mt-2"
           >
             <button
               name="video-card"
-              className="w-60 h-32 border border-yellow-500 relative"
+              className="w-60 h-32 relative"
             >
               <Image src="/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg"
               layout="fill"
