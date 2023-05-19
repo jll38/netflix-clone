@@ -78,8 +78,23 @@ export function Navbar({ transparent }) {
       </div>
       <div className="flex gap-5">
         <div className="flex pt-2 gap-5">
+          <button className="relative bottom-1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
           <Link href="/shows">Kids</Link>
           <Link href="/dvd">DVD</Link>
+          <button className="hidden sm:flex group">
+            <div className="relative bottom-1">
+            <i class="fa-regular fa-bell text-xl"></i>
+            </div>
+            <div className="hidden group-hover:flex absolute top-10 w-max rounded ">
+              <div className="relative right-16 bg-black/50 mt-4 p-2 text-white border-t w-36 rounded-sm">
+                <ul className="text-left flex flex-col gap-1">
+                  
+                </ul>
+              </div>
+            </div>
+          </button>
         </div>
         <div className="flex gap-2">
           <img

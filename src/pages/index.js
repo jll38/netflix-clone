@@ -2,11 +2,25 @@ import { Navbar } from "./../components/Navbar";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import ReactPlayer from "react-player";
 import { Inter } from "next/font/google";
+import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
+const DynamicReactPlayer = dynamic(() => import("react-player"), {
+  ssr: false,
+});
 
 export default function Home() {
+  const playerRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true)
+
+  useEffect(() => {
+    setPlaying(true);
+
+  }, []);
   return (
     <>
       <Head>
@@ -35,7 +49,7 @@ export default function Home() {
                 The climactic chapter of the Star Wars prequel trilogy,
                 depicting the tragic fall of Jedi Knight Anakin Skywalker to the
                 dark side, his transformation into Darth Vader, and the rise of
-                the Galactic Empire under Emperor Palpatine's manipulative
+                the Galactic Empire under Emperor Palpatine&apos;s manipulative
                 reign.
               </div>
               <div className="flex flex-row gap-6 text-xs sm:text-sm h-5 sm:h-10">
@@ -48,19 +62,47 @@ export default function Home() {
                   <div className="sm:block hidden">More Info</div>
                 </button>
               </div>
+              <button className="left-0 w-1/4" onClick={() => {
+                if(muted === true){
+                  setMuted(false);
+                } else{
+                  setMuted(true);
+                }
+                }}>{(muted) ? (<i class="fa-solid fa-volume-xmark"></i>) : (<i class="fa-solid fa-volume"></i>)}</button>
+              
             </div>
           </div>
 
+        
+
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent to-netflix-bg  z-30 w-1/2"></div>
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
-          <div className="relative w-full h-0 pb-[100%]">
-            <Image
-              src="/image/530478.jpg"
-              alt="Image"
-              layout="fill"
-              objectFit="cover"
-              className="absolute top-0 left-0"
-            />
+          <div className="relative w-full h-0 pb-[100%] bottom-36">
+            {playing ? (
+              <DynamicReactPlayer
+                ref={playerRef}
+                url="/video/rots.mp4"
+                className="absolute top-0 left-0 w-full h-full"
+                width={1920}
+                height={1080}
+                playing={playing}
+                onReady={() => console.log("onReady")}
+                onStart={() => console.log("onStart")}
+                onPlay={() => console.log("onPlay")}
+                onBuffer={() => console.log("onBuffer")}
+                onError={(e) => console.log("onError", e)}
+                onEnded={() => {setPlaying(false)}}
+                muted={muted}
+              />
+            ) : (
+              <Image
+                src="/image/530478.jpg"
+                alt="Image"
+                layout="fill"
+                objectFit="cover"
+                className="absolute top-0 left-0"
+              />
+            )}
           </div>
         </div>
         <div className="border border-red-500 relative h-40 sm:-top-10 z-20">
@@ -69,8 +111,7 @@ export default function Home() {
             name="top-search"
             className="flex flex-row border border-blue-500 h-36"
           >
-            <div name="video-card" className="">
-            </div>
+            <div name="video-card" className=""></div>
           </div>
         </div>
       </main>

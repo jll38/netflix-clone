@@ -7,6 +7,7 @@ module.exports = {
         "netflix-bg": "#191818",
         "transparent": "transparent",
       },
+      
     },
   },
   plugins: [],
