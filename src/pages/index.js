@@ -73,7 +73,7 @@ export default function Home() {
                   alt="Billboard Movie Logo"
                 />
               </div>
-              <div className="xl:block hidden drop-shadow-lg">
+              <div className="xl:block hidden drop-shadow-lg w-3/4">
                 The climactic chapter of the Star Wars prequel trilogy,
                 depicting the tragic fall of Jedi Knight Anakin Skywalker to the
                 dark side, his transformation into Darth Vader, and the rise of
