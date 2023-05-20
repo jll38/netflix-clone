@@ -4,7 +4,7 @@ import Image from "next/image";
 import ScaleOnHover from "./ScaleOnHover";
 import { useState } from "react";
 
-export function Carousel({ header, images }) {
+export function Carousel({ header, images, watching }) {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -13,8 +13,7 @@ export function Carousel({ header, images }) {
       });
     }
   };
-  const [sectionL, setSectionL] = useState(3);
-  const [sectoionR, setSectionR] = useState(2);
+  const [currSection, setCurrSection] = useState(1);
 
   return (
     <>
@@ -22,47 +21,59 @@ export function Carousel({ header, images }) {
         {header}
       </div>
       <div name="top-search" className="shows-wrapper mx-4 sm:mx-8 md:mx-20">
-        <button
-          className="absolute text-3xl z-30 top-28 left-10"
-          onClick={() => {
-            scrollToSection(`section${sectionL}`);
-            if (sectionL != 1) {
-              setSectionL(sectionL - 1);
-            } else {
-              setSectionL(3);
-            }
-          }}
-        >
-          ‹
-        </button>
-        <button
-          className="absolute text-3xl z-30 top-28 right-12"
-          onClick={() => {
-            scrollToSection(`section${sectionL}`);
-            if (sectionL != 3) {
-              setSectionL(sectionL + 1);
-            } else {
-              setSectionL(1);
-            }
-          }}
-        >
-          ›
-        </button>
+      <button
+  className="absolute text-3xl z-30 top-28 left-10"
+  onClick={() => {
+    console.log("Before" + currSection);
+    setCurrSection((prevSection) => {
+      if (prevSection !== 1) {
+        scrollToSection(`section${prevSection - 1}`);
+        return prevSection - 1;
+      } else {
+        scrollToSection(`section3`);
+        return 3;
+      }
+    });
+    console.log("After" + currSection);
+  }}
+>
+  ‹
+</button>
+<button
+  className="absolute text-3xl z-30 top-28 right-12"
+  onClick={() => {
+    console.log("Before" + currSection);
+    setCurrSection((prevSection) => {
+      if (prevSection !== 3) {
+        scrollToSection(`section${prevSection + 1}`);
+        return prevSection + 1;
+      } else {
+        scrollToSection(`section1`);
+        return 1;
+      }
+    });
+    console.log("After" + currSection);
+  }}
+>
+  ›
+</button>
+
+
         <div id="section1" className="shows-section">
           {images[0].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} />;
+            return <VideoCard key={i} img={image} first={true} watching={watching} />;
           })}
         </div>
 
         <div id="section2" className="shows-section">
           {images[1].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} />;
+            return <VideoCard key={i} img={image} first={true} watching={watching}/>;
           })}
         </div>
 
         <div id="section3" className="shows-section">
           {images[2].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} />;
+            return <VideoCard key={i} img={image} first={true} watching={watching}/>;
           })}
         </div>
       </div>

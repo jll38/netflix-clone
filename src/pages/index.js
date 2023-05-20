@@ -24,7 +24,6 @@ export default function Home() {
       "/image/redemption.jpg",
       "/image/skyfall-movie-poster-james-bond-daniel-craig-2012.jpg",
       "/image/bcs.jpeg",
-
     ],
     [
       "/image/seinfeld.jpeg",
@@ -32,16 +31,17 @@ export default function Home() {
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
-
-    ],[
+    ],
+    [
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
       "/image/AAAABRwuS9u6qnSqe9jHPTLgnTo7AFdZAZM1rZ-z-jA_h1960CwRv63bUeSLO9svPp7enVpGiH7yxzdPVyY0Sp8AcTXTPwLjVB28thfg.jpg",
-
     ],
   ];
+
+  const currWatching = [["/image/bullet-train.jpeg", "/image/bcs.jpeg"], [], [] ];
   useEffect(() => {
     setPlaying(true);
   }, []);
@@ -90,9 +90,7 @@ export default function Home() {
                   <div className="sm:block hidden">More Info</div>
                 </button>
                 <button
-                  className={`text-xl left-0 w-1/8 ${
-                    !playing ? "hidden" : ""
-                  }`}
+                  className={`text-xl left-0 w-1/8 ${!playing ? "hidden" : ""}`}
                   onClick={() => {
                     if (muted === true) {
                       setMuted(false);
@@ -151,7 +149,12 @@ export default function Home() {
           </div>
         </div>
         <div className="relative h-40 sm:-top-16 lg:-top-36 z-20">
-          <Carousel header={"Top Searches"} images={topSearch}/>
+          <Carousel header={"Top Searches"} images={topSearch} />
+          <Carousel
+            header={"Currently Watching"}
+            images={currWatching}
+            watching={true}
+          />
         </div>
       </main>
     </>
