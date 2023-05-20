@@ -5,8 +5,8 @@ export function Navbar({ transparent }) {
     <nav
       className={`sm:flex text-xs justify-between py-4 px-8 fixed w-full hidden ${
         transparent
-          ? "bg-gradient-to-t from-transparent to-black"
-          : "bg-gradient-to-t from-gray-900 to-black"
+          ? "bg-gradient-to-t from-transparent to-netflix-bg"
+          : "bg-gradient-to-t from-gray-900 to-netflix-bg"
       } z-50`}
     >
       <div className="flex">

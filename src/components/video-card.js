@@ -7,7 +7,7 @@ export function VideoCard({ ...props }) {
     <ScaleOnHover>
       <button
         name="video-card"
-        className={`w-56 h-32 relative shows-item ${props.first ? "ml-8" : "ml-6"} rounded-md overflow-hidden`}
+        className={`w-56 h-32 relative shows-item rounded-md overflow-hidden`}
       >
         <Image
           src={props.img}

@@ -63,12 +63,12 @@ export default function Home() {
           className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10  sm:block hidden"
         >
           <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
-            <div className="text-left w-full relative px-16 md:px-24 lg:px-32 flex flex-col gap-6">
+            <div className="text-left w-full relative px-16 md:px-24 lg:px-24 flex flex-col gap-6 -top-10">
               <div className="">
                 <Image
                   src="/image/revenge-of-the-sith-dplus-logotitle-800_53d94418.png"
-                  width={300}
-                  height={300}
+                  width={250}
+                  height={250}
                   className="drop-shadow-xl lg:object-contain"
                   alt="Billboard Movie Logo"
                 />
@@ -90,7 +90,7 @@ export default function Home() {
                   <div className="sm:block hidden">More Info</div>
                 </button>
                 <button
-                  className={`text-xl left-0 w-1/2 sm:w-1/8 ${
+                  className={`text-xl left-0 w-1/8 ${
                     !playing ? "hidden" : ""
                   }`}
                   onClick={() => {
@@ -150,8 +150,8 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 sm:-top-16 lg:-top-32 z-20">
-          <Carousel images={topSearch}/>
+        <div className="relative h-40 sm:-top-16 lg:-top-36 z-20">
+          <Carousel header={"Top Searches"} images={topSearch}/>
         </div>
       </main>
     </>
