@@ -148,7 +148,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="relative h-40 sm:-top-16 lg:-top-36 z-20">
+        <div className="relative sm:-top-16 lg:-top-36 z-20">
           <Carousel header={"Top Searches"} images={topSearch} />
           <Carousel
             header={"Currently Watching"}
