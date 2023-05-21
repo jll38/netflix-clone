@@ -41,10 +41,15 @@ export default function Home() {
     ],
   ];
 
-  const currWatching = [["/image/bullet-train.jpeg", "/image/bcs.jpeg"], [], [] ];
+  const currWatching = [
+    ["/image/bullet-train.jpeg", "/image/bcs.jpeg"],
+    [],
+    [],
+  ];
   useEffect(() => {
     setPlaying(true);
   }, []);
+
   return (
     <>
       <Head>
@@ -60,7 +65,7 @@ export default function Home() {
         </div>
         <div
           id="billboard"
-          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10  sm:block hidden"
+          className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10 sm:block hidden"
         >
           <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
             <div className="text-left w-full relative px-16 md:px-24 lg:px-24 flex flex-col gap-6 -top-10">
@@ -120,9 +125,9 @@ export default function Home() {
                     playsinline
                     ref={playerRef}
                     url="/video/rots.mp4"
-                    className="absolute left-0 w-full h-full"
+                    className="relative top-24 left-0 w-full h-full"
                     width={"100%"}
-                    height={"60%"}
+                    height={"100%"}
                     playing={playing}
                     onReady={() => console.log("onReady")}
                     onStart={() => console.log("onStart")}

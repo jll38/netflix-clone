@@ -63,19 +63,19 @@ export function Carousel({ header, images, watching }) {
 
         <div id="section1" className="shows-section">
           {images[0].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} watching={watching} />;
+            return <VideoCard key={i} img={image} watching={watching} />;
           })}
         </div>
 
         <div id="section2" className="shows-section">
           {images[1].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} watching={watching}/>;
+            return <VideoCard key={i} img={image} watching={watching}/>;
           })}
         </div>
 
         <div id="section3" className="shows-section">
           {images[2].map((image, i) => {
-            return <VideoCard key={i} img={image} first={true} watching={watching}/>;
+            return <VideoCard key={i} img={image} watching={watching}/>;
           })}
         </div>
       </div>
