@@ -48,6 +48,10 @@ export default function Home() {
   ];
   useEffect(() => {
     setPlaying(true);
+    if(window.screen.width < 650)
+    {
+      playerRef.current.muted = true;
+    }
   }, []);
 
   return (
@@ -67,17 +71,19 @@ export default function Home() {
           id="billboard"
           className="relative h-[30vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] overflow-hidden z-10 sm:block hidden"
         >
-          <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center">
-            <div className="text-left w-full relative px-16 md:px-24 lg:px-24 flex flex-col gap-6 -top-10">
-              <div className="">
-                <Image
-                  src="/image/revenge-of-the-sith-dplus-logotitle-800_53d94418.png"
-                  width={250}
-                  height={250}
-                  className="drop-shadow-xl lg:object-contain"
-                  alt="Billboard Movie Logo"
-                />
-              </div>
+          <div className="absolute h-[40vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] z-40 w-1/2 flex justify-center items-center -top-10">
+            <div className="text-left w-full px-16 md:px-24 lg:px-24 flex flex-col gap-6">
+            <div className="sm:h-[8rem] sm:w-[14rem] md:h-[10rem] md:w-[16rem] lg:h-[12rem] lg:w-[20rem] relative">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <Image
+      src="/image/revenge-of-the-sith-dplus-logotitle-800_53d94418.png"
+      className="max-h-full max-w-full"
+      alt="Billboard Movie Logo"
+      fill
+    />
+  </div>
+</div>
+
               <div className="xl:block hidden drop-shadow-lg w-3/4">
                 The climactic chapter of the Star Wars prequel trilogy,
                 depicting the tragic fall of Jedi Knight Anakin Skywalker to the
@@ -116,11 +122,11 @@ export default function Home() {
 
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-l from-transparent via-transparent to-netflix-bg  z-30 w-1/2"></div>
           <div className="absolute h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-[70vh] xl:h-[90vh] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
-          <div className="relative w-full h-0 pb-[100%] bottom-36 sm:block hidden">
+          <div className="relative w-full h-0 pb-[110%] bottom-36 sm:block hidden">
             {playing ? (
               <>
-                <div className="mt-32 sm:mt-0">
-                  <div className="absolute h-[52%] bg-gradient-to-b from-transparent via-transparent to-netflix-bg z-30 w-full"></div>
+                <div className="md:mt-0">
+                  <div className="absolute h-[58%] lg:h-[50%] bg-gradient-to-b from-transparent  to-netflix-bg z-30 w-full"></div>
                   <DynamicReactPlayer
                     playsinline
                     ref={playerRef}
