@@ -10,6 +10,8 @@ export function Carousel({ header, images, watching }) {
     if (section) {
       section.scrollIntoView({
         behavior: "smooth",
+        inline: "start",
+        block: "nearest"
       });
     }
   };
@@ -20,9 +22,9 @@ export function Carousel({ header, images, watching }) {
       <div className="px-16 pt-5 sm:px-20 md:px-30 text-xs sm:text-md lg:text-lg font-bold">
         {header}
       </div>
-      <div name="top-search" className="shows-wrapper mx-4 sm:mx-8 md:mx-20">
+      <div name={header} className="shows-wrapper mx-20 overflow-x-scroll">
       <button
-  className="absolute text-3xl z-30 top-28 left-10"
+  className="absolute text-3xl z-30 top-16 md:top-20 lg:top-28 left-10"
   onClick={() => {
     console.log("Before" + currSection);
     setCurrSection((prevSection) => {
